@@ -1,0 +1,107 @@
+-touch "nombre"."formato: nos crea un archivo directamente desde la consola de git!!!(BUEN COMANDO)
+-code .: lo utilizamos para abrir el editor de codigo desde la consola!..
+------CONFIGURACION DE GIT-----------
+-git config --global user.name /email/alias "para cambiar lo que necesitemos, se ponen comillas".
+-git config --global list(ver lo que ya tenemos configurado)
+- git config --list(todo lo que podemos configurar)
+-git config --global core.editor "code --wait" : configurar el editor(cada editor tiene su palabra clave, el wait es para que no se copnfirmen los cambios hasta que se cierre el editor)
+-git config --global core.autocrlf true:"linefeed"baja una linea y vuelve al principio; hya que configurarlo es para que se no tengamos problemas con otros sistemas operativos
+-GIT CONFIG --GLOBAL CORE.ABBREV NUMERO EJ 5: es para que nos salga menos en el identificador de los commits
+-GIT CONFIG --GLOBAL CORE.EXCLUDESFILE G:/ .GITIGNORE-GLOBAL:asi podemos agregar un git ignore que sea global para todos los archivos .txt por ejeplo, esta creado en el disco d
+-GIT CONFIG --GLOBAL ALIAS.LOG-MEJOR "LOS COMANDOS QUE QUERRAMOS AGREGAR" voy a dejar este creado
+-----------
+AREAS DE TRABAJO:
+-DIRECTORIO: es el area donde trabajamos , o sea el directorio, 
+-STAGING AREA./GIT ADD NOMBRE DEL ARCHIVO.formato,y asi sin la coma puedo agregar 2 o mas archivos  o: es donde subimos los archivos los archivos preparados para comitear
+-commits /GIT COMMIT -M "PONEMOS MENOS M PARA AÑADIR UN MENSSAJE CORTO" -A(SI QUEREMOS PONERLE EL MESAJE A TODOS LOS ARCHIVOS , SI NO NO PONEMOS -A): donde se suben los archivos que estan en el area de preparacion lo subimos al repositorio(obvio todo esto localmente)
+GIT COMMIT : se utiliza asi si queremos añadir mensajes mas detallados a los commits, se va a abrir el editor y una ves cerrado se guardan los cambios.
+GIT COMMIT -A: se saltea el add y directamente commitea todo
+--------------------
+COMANDOS:
+-CD D:d por ejeplo es donde tenemos todos los archivos en este caso disco d: y siempre se utilizan : para ingresar al disco pero solo aca
+despues ponemos cd para movernos entre carpetas, ej: cd carpeta 1 y para volver hacia atras utilizamos CD ..
+-MKDIR NOMBREDELA CARPETA: este comando lo utilizamos para crear carptas(make diretory)
+-RMDIR NOMBRE : eliminar carpeta(del directorio).
+-GIT INIT: una ves que estamos dentro de la carpeta donde vamos a trabajar usamos este comando y automaticamnete se nos va a crear una carpeta oculta llamada .git(tenemos que activar ver archivos ocultos para verla)
+-LS y ls -a (nos muestraarchivos ocultos tambien):nos muestra archivos dentro de la carpeta.
+-GIT STATUS/ GIT STATUS -S: nos muestra informacion del trabajo y modificaciones., y el menos s es para resumirnos todo; VERDE: STAGING/ ROJO : DIRECTORIO
+-GIT REMOVE --CACHED NOMBRE.FORMATO: es para eliminar archivos en el staging area o commiteados.
+-RM : con este comando se eliminan archivos del repositorio, una ves eliminados tengo que añadirlos al staging area y commitear esa eliminacion
+-GIT RESPOTRE NOMBRE.FORMATO: para recuperar archivos eliminados del directorio pero que si estan en el staging area.
+-GIT CHECKOUT: vuelve atras a la ultima ves que se hizo un commit y te lo devuelve en el directorio .si esta en el staging area ya no, es como volver en el tiempo .
+-GIT RESET --HARD: es lo mismo pero fuerza los archivos del staging y vuelve si o si al ultimo commit.
+-GIT MV NO-VIEJOP NO-NUEVO: este comando renombra archivos(se añade el cambio con add).
+-GIT SHOW NOMBRE.FORMATO: nos va a mostrar todo del archivo commiteado,solo busca commits.
+-GIT LOG:nos muestra la informacion de los commits.
+-GIT LOG --ONELINE: nos muestra todo pero resumido.
+-GIT LOG --ONELINE --ALL: nos va a mostrar todos los commist que hay en todas las ramas.
+-GIT LS-TREE -R --NAME-ONLY ID:nos va a mostar todos los archivos que tiene un commit espesifico
+---------comparacion de archivos en preparacion con ultimo commit-----
+
+-GIT DIFF --staged: nos va a mostra ambos archivos/ROJO :COMMITEADO / VERDE :STAGING.
+para comprar commits:
+-GIT DIFF --NAME-ONLY ID ID: nos va a mostrar diferencias entre esos dos commits
+-GIT DIFF --WORD-DIFF ID ID: nos muetra todo mas detallado. de lo que esta guardado y lo nuevo.
+
+-----modificacion de commits echos-------
+-GIT COMMIT --AMEND:nos va a permitir corregir o enmendar cualquier archivo que tengamos o que nos hallamos olvidado de subir, por ejeplo si queremos modificar algo de un commit y agregar un archivo , subimos el archivo olvidaod al staging y ponemos el amend , se nos va a abrir en visual una pestaña , modificamos y cerramos, y con eso ya se subio el archivo y se mofdifico el commit que queriamos, en resumen fue modificado, ademas es el ultimo commit.
+- para modificar un commit que no sea el ultimo usamos:
+GIT REBASE -I HEAD~nDeCommit a modificar(virguilla ~ alt+126): se nos va a abrir el visula y el commit que queramos modificar le ponemos edit en la parte qye dice pick y cerramos, ahora añadimos o modificamos y utilizamos el AMEND. OJO QUE SE BORRAN LOS ARCHIVOS DESPUES DE ESE COMMIT, SE PUEDE UTILIZAR REBASE, PERO SIEMPRE ES RECOMENDABLE MODIFICAR EL ULTIMO.
+-----GET RESET---
+-GIT RESET --SOFT ID/ o podemos poner head 2 / nos va a mover 2 commits hacia atras:nos va a mover al comit con el id que le pusimos, los archivos que estaban despues , es decir si nos movimos 2 archivos hacia atras , esos dos archivos no se borran si no que vuelven al staging
+-GIT RESET --MIXED ID: mescla los archivos , por ejeplo si hay uno borrado en el staging y uno igual commiteado los mescla
+-GIT RESET --HARD ID: reset hard lo que hace es borra completamente el commit, descarta todos los archivos en el area de staging y pone esos archivos en nuestra area de trabajo,
+-------BRACH(RAMAS)------------
+SIEMPRE TEMENOS QUE ABRIR RAMAS PARA TRABAJAR , PARA NO CAGAR LA RAMA PRINCIPAL
+-GIT BRANCH: nos muestra todas las ramas que tenemos creadas. nos va a mostar con un * y en verde en done estamos posiconados.
+-GIT BRANCH NOMBRE-RAMA-NUEVA: asi creamos una rama para trabajar.
+-GIT CHECKOUT NOMBRE-RAMA: nos permite movernos entre ramas.
+-GIT SWITCH(MAS RECOMENDABLE PARA MOVERNOS ENTRE RAMAS):este comando esta creado especificamnete para movernos entre ramas.
+-GIT SWITCH -C NOMBRE-DE-LA-RAMA: este comando nos premite crear una rama y automaticamente movernos a ella. ¡¡¡¡SIEMPRE CHEQUEAR EN DONDE ESTAMOS ANTES DE MODIFICAR ALGO!!!!!
+-SI QUEREMOS CREAR UNA RAMA DE UNA RAMA , TENEMOS QUE COLOCARNOS EN LA RAMA QUE SACAMOS PARA TRABAJAR Y DE AHI CREAR UNA NUEVA, SI ESTAMOS EN LA RAMA MASTER OBVIAMENTE NOS VA A SACAR UNA RAMA DESE AHI.
+-GIT BRANCH -D NOMBRE-DE-LA-RAMA : asi podemos eliminar la rama creada, primero tenemos que salir de la rama y despues eliminarla.
+-GIT BRACH -M RAMA-VIEJA RAMA-NUEVA: asi cambiamos el nombre de la rama. esto si estamos en otra rama, por ejemplo en la rama master y queremos modificar el nombre de rama vieja,
+-GIT BRANCG -M NUEVO-NOMBRE: si estmos posicionados en la rama podemos cambiarle el nombre asi.
+
+-----------MERGE------------
+-TENEMOS QUE ESTAR EN LA RAMA QUE QUEREMOS FUSIONAR , EN LA RAMA QUE ESTAMOS TRABAJANDO.
+-GIT MERGE NOMBRE-DE-LA-RAMA: comando para fusionar ramas. y no se fusionan las ramas, se fusionan los commits, por eso hay que elimar manualmente la rama que abrimos con un branch -d.
+-GIT RESET --HARD ID: si fusionamos algo que no teniamos que fusionar.
+------CONLFICTS-----
+- ACCEPT CURRENT CHANGE:unir ramas pero aceptar los cambios de la rama principal
+- ACCEPT INCOMING CHANGE: unir ramas y aceptar los cambios nuevos(rama a unirse)
+- ACCEPT BOTH CHANGE: aceptar ambos cambios de las dos ramas
+-COMPARE CHANGES: comparar ambos archivos
+una vez realizados los cambios para resolver el git conflict,utilkizamos
+-GIT MERGE --CONTINUE.
+
+------GIT .IGNORE_-----
+es un archivo que se llama .gitIgnore, se tiene que crear el archivo:
+tenemos que poner nuevo archivo y escribirlo asi : .GITIGNORE, dentro de ese archivo es donde vamos a poner las cosas que queremos ignorar(no queremos subir)
+
+-nombre.formato: nos va a ignorar ese archivo en concreto
+-*.txt: nos va a ignorar todos los archivos .txt(asi puede ser con jpg , mp3,js y demas).
+-!nombre.formato: es para que no nos ignore ese archivo por ejemplo si tenemos ignorados todos los archivos txt, IMPORTANTE ESTE SIGNO!!!!
+-CARPETA/ :nos va a ignorar todo los archivos que esten dentro de esa carpeta.
+-!CARPETA/COLOR.PY: nos va a ignorar todo lo que esta en esa carpeta excepto ese archivo.
+-*).txt : nos va a ignorar todos los archivos que son copia por ejeplo , sin ignorar todos los .txt
+SI QUEREMOS QUE SE IGNORE UN ARCHIVO PERO YA ESTA SUBIDO TENEMOS QUE ELIMINARLO, POR QUE GIT YA LO RASTREO.
+
+-SE PUEDE CREAR UN IGNORE GLOBAL CREANDO UN ARCHIVO EN EL DISCO 
+
+-GIT CONFIG --GLOBAL CORE.EXCLUDESFILE G:/ .GITIGNORE-GLOBAL:asi podemos agregar un git ignore que sea global para todos los archivos .txt por ejeplo, esta creado en el disco d, si querremos que algo no sea ignorado , simplemente creamamos otro archivo en la carpeta que vayamos a tranajr y lo configurtamos.
+
+
+
+----------ALIAS---------
+-nos sirve para modificar comandos por ejemplo,
+-GIT CONFIG --GLOBAL ALIAS.LOG-MEJOR "LOS COMANDOS QUE QUERRAMOS AGREGAR" voy a dejar este creado.
+
+
+------REFLOG-----
+reflog es un comando para acceder al registro del head, practicaMNTE ES el historial de donde hemos estado y trabajado(por si llegamos a perder algun archivo o el ID ).para salir el reflog tenemos que uzar la Q
+
+GIT REFLOG 
+una vez encontrado el Id que perdimos ,usamos:
+GIT RESET --HARD ID : Y NOS VA A APARECER ESE COMMIT NUEVAMENTE!!!
+O CON UN GIT CHECKOUT PODEMOS TRAER ESE COMMIT NUEVAMENTE Y MODIFICARLO!!
