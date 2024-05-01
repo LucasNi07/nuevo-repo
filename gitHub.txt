@@ -1,0 +1,59 @@
+-----------------
+GITHUB 
+:::GIT CLONE:::bajamos el repositorio completo para modificar en nuestro direcrtio
+cloando repositorios: lo primero es entrar en la carpeta donde lo vamos a clonar
+abrimos git bash , y el comando que vamos utilizar es GIT CLONE Y AHI PEGAMOS EL HTTPS PARA LA DEScaega, vamos a sacar el codigo de la parte de code de el repo que queramos clonar ..
+quedaria haci:
+-----
+primero nos posicionamos en la carptea, abrimos vsc en esa carpeta y ponemos el comando git clone:
+
+code .(una ves que estemos pocisionado en git).
+git clone https://github.com/LucasNi07/lucas-first-repo.git (ponemos el https copiado)
+--------------------
+¡¡¡¡!!! me quede aca en git push, lo que hice fue crear el documento codigo.py añadirlo y comitearlo en la carpeta2 lucas-first-repo!! hasta ahi me quede! minuto: 03:07:30.
+
+luego, modificamos el archivo agregando un comentario para volver a subirlo a git hub
+
+---git push origin: lo que hacemos cuando descargamos con git clone es traer el archivo con una referencia, entonces lo que hacemos para subir los cambios echos en el repositorio es utilizar Git Push orogin master(para subir todo en el repo donde lo descargamos y ponemos la rama master)
+
+---git pull(git pull origin master): lo que hace este comando es agarrar cambios y los baja junto a nosotros, basicamente si hay un cambio en los archivos ya subidos a git con un git pull, se nos van a actualizar los datos en nuestro directorio.... es como hacer un git fetch y git merge todo junto ´pero inverso, es decir baja los archivos y los fusiona con la rama de nuestro repositorio.
+------------------------
+---git fetch: Nolo entendi, revisar!!!!git fetch es un comando en Git que descarga los cambios del repositorio remoto a tu repositorio local, pero no los fusiona con tus cambios locales. Es útil cuando quieres ver qué cambios se han realizado en el repositorio remoto desde tu última actualización, pero no estás listo para fusionar esos cambios en tu rama local. Después de ejecutar git fetch, puedes examinar los cambios descargados y decidir si deseas fusionarlos usando git merge o git rebase.
+---------------
+como migrar un repositorio local:
+-tenemos git remote -v: este comado nos va a decir las cosas que podemos hacer con los archivos que ya tenemos
+tenemos que copiar y pegar lo que nos sale en la pagina de git , primero nos va a salir que un git add con un https
+despues un branch para unir las ramas y luego un push...
+
+----------forks---
+un fork es párecido a clonar un repo, la diferencia entre los dos es que con el git clone se clona el repositorio y lo editamos en nuestro directorio.
+y el fork es para clonar repositorios pero que no se alojen en nuestro directorio, si no que quede en nuestra cuenta de github,
+todo se hace desde la pagina github y es practicamnte copiar un repo a nuestro repo.
+--------
+PULL REQUEST:----------
+un pull request es basicamnete agarrar un repo de alguien mas clonarlo a nuestro repositorio de git, lo bajamos a nuestro directorio, optimizamos ,subimos nuevamente y luego le preguntamos al creador original de ese repo si acepta nuestros cambios en su codigo. 
+esto se hace con un boton que dice contribte y pull request, lo que hace es verificar los cambios y verificar que se pueda hacer un merge sin conflictos, despues añadimos el titulo y una descripcion del trabajo que hicimos.
+
+------------
+issues.: es una funcionalidad que nos permite hacer un seguimientos de tareas, para cualquier cambio que se va a hacer se le asigna un issue, y para asignar tareas, o ver lo que falta hacer..
+PODEMOS agregar comentarios diciendo lo que hicimos con el repo
+
+-----BUENAS PRACTICAS EN GIT-----------
+-git ignore, siempre es buena practica.
+-la creacion de ramas(merge) siempre tiene que ser creado unicamente para cumplir con un objetivo principal, cuando ese objetivo se cumple,se limpia y se elimina esa rama
+siempre creamos nombres descriptivos para esa rama, y siempre con kebab-case.
+-siempre revisar y probar todo en nuestro en nuestra pc antes de  hacer un pull request
+-siempre crear ramas para trabajar en algun proyecto JAMAS!! TRABAJAR EN LA RAMA principal
+-investigar revase y scuash.
+-los commits tienen que ser siempre significativos, y micro, o sea que cada cambio que hagamos se hace un commit , por ejemplo si agregamos un boton, se hace commit, y cada commit tiene que tener un titulo descriptivo....
+-tambien es bueno hacer un pull cada tanto para mantener actualizado todo
+-eliminar ramas una ves q ya no se utilizan.
+....................
+PROXIMOS PASOS--------
+recomnedaciones para continua:
+git stash: averiguar por que es importante, es como un lugar aparte para no perder todo en lo que estamos trabajando, sin tener que commitear.
+git cherry.pick: esto agarra un solo commit para fusionar sin tener que commitear y hacer un merge con todo.
+rebase: ordena el historial de commits. revisar por que es importante
+submodulos: es como incluir un repositorio dentro de otro repo.
+git bisect(RESOLVER PROBLEMAS): nos permite encontrar un commit que nos da un error, nos marca un commit donde funsionaba y donde dejo de funsionar.
+git flow y git hub flow: investigarlo!!
